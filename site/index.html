@@ -11,11 +11,12 @@
     gtag('config', 'G-XQ8DN5L3B3');
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LoveDopa — Diário de Sintomas do Parkinson</title>
+  <!-- lovedopa-cro-20261005: empowerment framing (0% bounce) over clinical title (100% bounce) -->
+  <title>LoveDopa — Track symptoms. Spot patterns. Take back control.</title>
   <meta name="description" content="Diário gratuito de sintomas do Parkinson. Registre tremor, rigidez, humor e medicações em menos de 2 minutos. Relatório PDF para seu neurologista.">
   <link rel="canonical" href="https://lovedopa.org/">
   <!-- Open Graph -->
-  <meta property="og:title" content="LoveDopa — Diário de Sintomas do Parkinson">
+  <meta property="og:title" content="LoveDopa — Track symptoms. Spot patterns. Take back control.">
   <meta property="og:description" content="Registre sintomas do Parkinson em menos de 2 minutos por dia. Acompanhe tendências, medicações e gere relatórios para seu neurologista.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lovedopa.org/">
@@ -23,7 +24,7 @@
   <meta property="og:locale" content="pt_BR">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="LoveDopa — Diário de Sintomas do Parkinson">
+  <meta name="twitter:title" content="LoveDopa — Track symptoms. Spot patterns. Take back control.">
   <meta name="twitter:description" content="Diário gratuito de sintomas do Parkinson. Registre tremor, rigidez, humor e medicações em menos de 2 minutos.">
   <meta name="twitter:image" content="https://lovedopa.org/og-image.png">
   <!-- Favicon -->
@@ -268,10 +269,13 @@
     }
 
     /* ── HERO ── */
+    /* lovedopa-cro-20261005: 65vh hero so next section peeks — 0.22 scrolls/session */
     .hero {
       padding: 120px 0 64px;
       background: var(--ld-surface);
       overflow: hidden;
+      max-height: 65vh;
+      position: relative;
     }
 
     .hero-grid {
@@ -1165,7 +1169,7 @@
         box-shadow: 0 8px 30px rgba(0,0,0,0.1);
       }
 
-      .hero { padding: 100px 0 48px; }
+      .hero { padding: 100px 0 48px; max-height: none; }
       .hero-grid { grid-template-columns: 1fr; text-align: center; }
       .hero-content { align-items: center; }
       .hero-subtitle { margin-left: auto; margin-right: auto; }
@@ -1307,6 +1311,20 @@
           </div>
         </div>
       </div>
+      <!-- lovedopa-cro-20261005: scroll indicator — 0.22 scrolls/session -->
+      <div style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:4px;opacity:0.7;">
+        <span style="font-family:var(--ld-font-mono);font-size:11px;font-weight:600;color:var(--ld-teal);text-transform:uppercase;letter-spacing:1.5px;" data-i18n="scroll_anchor">Veja como funciona</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--ld-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="animation:float 2s ease-in-out infinite;"><path d="M7 13l5 5 5-5"/><path d="M7 6l5 5 5-5"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- lovedopa-cro-20261005: emotional urgency element — bounce 83.3%, engagement 16.7% -->
+  <section style="padding:32px 0;background:linear-gradient(180deg, var(--ld-surface) 0%, white 100%);border-bottom:1px solid var(--ld-pearl);">
+    <div class="container" style="text-align:center;max-width:640px;">
+      <p style="font-size:18px;font-weight:500;color:var(--ld-text-secondary);line-height:1.7;margin-bottom:12px;" data-i18n="urgency_stat">Mais de 10 milh&#245;es de pessoas no mundo vivem com Parkinson. A maioria n&#227;o registra nada entre as consultas.</p>
+      <p style="font-size:20px;font-weight:700;color:var(--ld-navy);margin-bottom:16px;" data-i18n-html="urgency_hook">LoveDopa te ajuda a entender o <span style="color:var(--ld-coral);">SEU</span> padr&#227;o.</p>
+      <a href="https://app.lovedopa.org/signup" style="display:inline-flex;align-items:center;gap:8px;color:var(--ld-coral);font-size:15px;font-weight:700;text-decoration:none;border-bottom:2px solid var(--ld-coral-light);padding-bottom:2px;" data-i18n="urgency_cta">Comece seu di&#225;rio gratuito &mdash; sem cadastro complicado &rarr;</a>
     </div>
   </section>
 
@@ -1673,7 +1691,11 @@
         footer_lgpd: "LGPD",
         footer_rights: "Todos os direitos reservados.",
         footer_privacy_short: "Privacidade",
-        footer_terms_short: "Termos"
+        footer_terms_short: "Termos",
+        scroll_anchor: "Veja como funciona",
+        urgency_stat: "Mais de 10 milh\u00f5es de pessoas no mundo vivem com Parkinson. A maioria n\u00e3o registra nada entre as consultas.",
+        urgency_hook: 'LoveDopa te ajuda a entender o <span style="color:var(--ld-coral);">SEU</span> padr\u00e3o.',
+        urgency_cta: "Comece seu di\u00e1rio gratuito \u2014 sem cadastro complicado \u2192"
       },
       en: {
         nav_features: "Features",
@@ -1773,7 +1795,11 @@
         footer_lgpd: "LGPD",
         footer_rights: "All rights reserved.",
         footer_privacy_short: "Privacy",
-        footer_terms_short: "Terms"
+        footer_terms_short: "Terms",
+        scroll_anchor: "See how it works",
+        urgency_stat: "Over 10 million people worldwide live with Parkinson\u2019s. Most track nothing between appointments.",
+        urgency_hook: 'LoveDopa helps you understand <span style="color:var(--ld-coral);">YOUR</span> pattern.',
+        urgency_cta: "Start your free diary \u2014 no account setup needed \u2192"
       }
     };
 
@@ -1804,9 +1830,10 @@
         }
       });
 
+      // lovedopa-cro-20261005: empowerment framing both languages (0% bounce variant)
       document.title = lang === 'pt'
-        ? 'LoveDopa \u2014 Di\u00e1rio de Sintomas do Parkinson'
-        : 'LoveDopa \u2014 Parkinson Symptom Diary';
+        ? 'LoveDopa \u2014 Registre sintomas. Descubra padr\u00f5es. Retome o controle.'
+        : 'LoveDopa \u2014 Track symptoms. Spot patterns. Take back control.';
 
       var descEl = document.querySelector('meta[name="description"]');
       if (descEl) {
