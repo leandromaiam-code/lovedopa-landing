@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <!-- Google Analytics 4 -->
@@ -11,22 +11,71 @@
     gtag('config', 'G-XQ8DN5L3B3');
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LoveDopa — Você no controle.</title>
-  <meta name="description" content="Track Parkinson's symptoms, medications & mood daily. Spot patterns with AI, share reports with your doctor. Free symptom diary — take back control.">
-  <meta property="og:title" content="LoveDopa — Você no controle.">
-  <meta property="og:description" content="Acompanhe sua jornada com Parkinson de forma inteligente. Dados que seu médico precisa, cuidado que você merece.">
+  <title>LoveDopa — Diário de Sintomas do Parkinson</title>
+  <meta name="description" content="Diário gratuito de sintomas do Parkinson. Registre tremor, rigidez, humor e medicações em menos de 2 minutos. Relatório PDF para seu neurologista.">
+  <link rel="canonical" href="https://lovedopa.org/">
+  <!-- Open Graph -->
+  <meta property="og:title" content="LoveDopa — Diário de Sintomas do Parkinson">
+  <meta property="og:description" content="Registre sintomas do Parkinson em menos de 2 minutos por dia. Acompanhe tendências, medicações e gere relatórios para seu neurologista.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://lovedopa.org">
+  <meta property="og:url" content="https://lovedopa.org/">
   <meta property="og:image" content="https://lovedopa.org/og-image.png">
+  <meta property="og:locale" content="pt_BR">
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="LoveDopa — Você no controle.">
-  <meta name="twitter:description" content="Track Parkinson's symptoms, medications & mood daily. Spot patterns with AI, share reports with your doctor. Free symptom diary — take back control.">
+  <meta name="twitter:title" content="LoveDopa — Diário de Sintomas do Parkinson">
+  <meta name="twitter:description" content="Diário gratuito de sintomas do Parkinson. Registre tremor, rigidez, humor e medicações em menos de 2 minutos.">
   <meta name="twitter:image" content="https://lovedopa.org/og-image.png">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- lovedopa-cro-20260918: non-blocking font load for <1.5s hero render -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=IBM+Plex+Mono:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet"></noscript>
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "LoveDopa",
+    "url": "https://lovedopa.org",
+    "logo": "https://heqrvpoebkmliwnslxpi.supabase.co/storage/v1/object/public/brand-assets/workspaces/lovedopa/logo.png",
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "4Profit AI LLC"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "contato@lovedopa.org",
+      "contactType": "customer support"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "LoveDopa",
+    "url": "https://lovedopa.org"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "LoveDopa",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Web",
+    "description": "Diário gratuito de sintomas do Parkinson com relatórios PDF para neurologistas.",
+    "url": "https://app.lovedopa.org",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "BRL"
+    }
+  }
+  </script>
   <style>
     :root {
       --ld-coral: #E8634A;
@@ -51,9 +100,18 @@
       --ld-radius-xl: 20px;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     html { scroll-behavior: smooth; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
 
     body {
       font-family: var(--ld-font-main);
@@ -69,7 +127,14 @@
       padding: 0 24px;
     }
 
-    /* NAV */
+    /* ── FOCUS STATES ── */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--ld-teal);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    /* ── NAV ── */
     nav {
       position: fixed;
       top: 0;
@@ -116,7 +181,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 28px;
       list-style: none;
     }
 
@@ -137,7 +202,6 @@
       background: var(--ld-pearl);
       border-radius: 20px;
       padding: 4px;
-      cursor: pointer;
     }
 
     .lang-btn {
@@ -157,6 +221,18 @@
       background: white;
       color: var(--ld-teal);
       box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .nav-login {
+      color: var(--ld-teal) !important;
+      font-weight: 600 !important;
+      font-size: 14px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-login:hover {
+      color: var(--ld-teal-dark) !important;
     }
 
     .nav-cta {
@@ -191,21 +267,23 @@
       transition: all 0.3s;
     }
 
-    /* HERO */
+    /* ── HERO ── */
     .hero {
-      padding: 110px 0 40px;
+      padding: 120px 0 64px;
       background: var(--ld-surface);
       overflow: hidden;
-      max-height: 70vh;
-      display: flex;
-      align-items: center;
     }
 
     .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-content {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      text-align: center;
       gap: 0;
     }
 
@@ -221,14 +299,15 @@
       font-weight: 600;
       color: var(--ld-teal);
       margin-bottom: 24px;
+      width: fit-content;
     }
 
     .hero h1 {
-      font-size: 52px;
+      font-size: 44px;
       font-weight: 800;
-      line-height: 1.1;
+      line-height: 1.12;
       letter-spacing: -1.5px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       color: var(--ld-navy);
     }
 
@@ -236,13 +315,11 @@
     .hero h1 .teal { color: var(--ld-teal); }
 
     .hero-subtitle {
-      font-size: 22px;
+      font-size: 18px;
       color: var(--ld-text-secondary);
-      line-height: 1.5;
-      margin-bottom: 40px;
-      max-width: 580px;
-      margin-left: auto;
-      margin-right: auto;
+      line-height: 1.6;
+      margin-bottom: 32px;
+      max-width: 520px;
       font-weight: 400;
     }
 
@@ -250,7 +327,13 @@
       display: flex;
       gap: 16px;
       flex-wrap: wrap;
-      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .hero-micro {
+      font-size: 14px;
+      color: var(--ld-text-tertiary);
+      font-weight: 500;
     }
 
     .btn-primary {
@@ -302,17 +385,16 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 32px;
     }
 
     .hero-phone {
-      width: 160px;
-      height: 320px;
+      width: 220px;
+      height: 440px;
       background: white;
-      border-radius: 28px;
+      border-radius: 32px;
       border: 6px solid var(--ld-navy);
       overflow: hidden;
-      box-shadow: 0 20px 50px rgba(26, 31, 61, 0.12);
+      box-shadow: 0 24px 60px rgba(26, 31, 61, 0.14);
       position: relative;
     }
 
@@ -322,8 +404,8 @@
       background: var(--ld-surface);
       display: flex;
       flex-direction: column;
-      padding: 10px 8px;
-      transform: scale(0.65);
+      padding: 14px 12px;
+      transform: scale(0.72);
       transform-origin: top center;
     }
 
@@ -462,39 +544,10 @@
       animation: float 6s ease-in-out infinite;
     }
 
-    .float-updrs {
-      top: 10px;
-      right: -60px;
-      transform: scale(0.75);
-    }
-
-    .float-updrs .label {
-      font-family: var(--ld-font-mono);
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--ld-teal);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .float-updrs .value {
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--ld-navy);
-    }
-
-    .float-updrs .change {
-      font-family: var(--ld-font-mono);
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--ld-teal);
-    }
-
     .float-streak-card {
-      bottom: 30px;
-      left: -50px;
+      bottom: 40px;
+      left: -40px;
       animation-delay: -3s;
-      transform: scale(0.75);
     }
 
     .float-streak-card .streak-visual {
@@ -520,12 +573,37 @@
       color: var(--ld-text-secondary);
     }
 
+    .float-trend-card {
+      top: 20px;
+      right: -40px;
+    }
+
+    .float-trend-card .trend-icon {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    .float-trend-card .trend-label {
+      font-family: var(--ld-font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ld-teal);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .float-trend-card .trend-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ld-navy);
+    }
+
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-12px); }
     }
 
-    /* STATS BAR */
+    /* ── STATS BAR ── */
     .stats-bar {
       padding: 48px 0;
       background: white;
@@ -535,7 +613,7 @@
 
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 32px;
       text-align: center;
     }
@@ -553,7 +631,7 @@
       margin-top: 4px;
     }
 
-    /* SECTION STYLING */
+    /* ── SECTION STYLING ── */
     section {
       padding: 100px 0;
     }
@@ -589,7 +667,7 @@
       line-height: 1.7;
     }
 
-    /* FEATURES */
+    /* ── FEATURES ── */
     .features { background: var(--ld-surface); }
 
     .features-grid {
@@ -651,7 +729,7 @@
       line-height: 1.6;
     }
 
-    /* HOW IT WORKS */
+    /* ── HOW IT WORKS ── */
     .how-it-works { background: white; }
 
     .steps-grid {
@@ -713,7 +791,7 @@
       line-height: 1.6;
     }
 
-    /* DOCTORS */
+    /* ── DOCTORS ── */
     .doctors {
       background: var(--ld-navy);
       color: var(--ld-text-on-dark);
@@ -798,6 +876,14 @@
       border-radius: 12px;
     }
 
+    .dashboard-label {
+      font-size: 12px;
+      color: rgba(226, 223, 210, 0.5);
+      font-style: italic;
+      text-align: center;
+      margin-top: 16px;
+    }
+
     .patient-rows {
       display: flex;
       flex-direction: column;
@@ -844,96 +930,63 @@
     .patient-alert.yellow { background: #E8A834; }
     .patient-alert.red { background: var(--ld-coral); }
 
-    /* FOUNDER STORY */
-    .founder { background: var(--ld-surface); }
+    /* ── STORY ── */
+    .story-section { background: var(--ld-surface); }
 
-    .founder-grid {
+    .story-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 64px;
       align-items: center;
     }
 
-    .founder-quote {
-      position: relative;
-      padding: 40px;
-      background: white;
-      border-radius: var(--ld-radius-xl);
-      border-left: 4px solid var(--ld-coral);
-    }
-
-    .founder-quote blockquote {
-      font-size: 20px;
-      font-weight: 500;
-      line-height: 1.7;
-      color: var(--ld-navy);
-      font-style: italic;
-      margin-bottom: 24px;
-    }
-
-    .founder-attribution {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .founder-avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--ld-coral), var(--ld-teal));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 800;
-      font-size: 18px;
-    }
-
-    .founder-name {
+    .story-content h3 {
+      font-size: 24px;
       font-weight: 700;
       color: var(--ld-navy);
+      margin-bottom: 20px;
+      line-height: 1.3;
     }
 
-    .founder-role {
-      font-size: 13px;
+    .story-content p {
+      font-size: 16px;
       color: var(--ld-text-secondary);
+      line-height: 1.7;
+      margin-bottom: 16px;
     }
 
-    .founder-stats {
+    .story-values {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
     }
 
-    .founder-stat-card {
+    .story-value-card {
       background: white;
       border-radius: var(--ld-radius-lg);
       padding: 28px;
       text-align: center;
     }
 
-    .founder-stat-number {
-      font-family: var(--ld-font-mono);
-      font-size: 32px;
-      font-weight: 600;
-      color: var(--ld-teal);
+    .story-value-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .story-value-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ld-navy);
       margin-bottom: 4px;
     }
 
-    .founder-stat-label {
+    .story-value-desc {
       font-size: 13px;
       color: var(--ld-text-secondary);
+      line-height: 1.5;
     }
 
-    .founder-stat-change {
-      font-family: var(--ld-font-mono);
-      font-size: 12px;
-      color: var(--ld-teal);
-      margin-top: 4px;
-    }
-
-    /* CTA */
+    /* ── CTA ── */
     .cta-section {
       background: linear-gradient(135deg, var(--ld-coral), var(--ld-coral-dark));
       padding: 100px 0;
@@ -1008,7 +1061,7 @@
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
     }
 
-    /* FOOTER */
+    /* ── FOOTER ── */
     footer {
       background: var(--ld-navy);
       color: var(--ld-text-on-dark);
@@ -1087,7 +1140,14 @@
 
     .footer-legal a:hover { color: var(--ld-teal-light); }
 
-    /* MOBILE */
+    .footer-4profit {
+      font-size: 12px;
+      color: rgba(226, 223, 210, 0.3);
+      text-align: center;
+      margin-top: 24px;
+    }
+
+    /* ── MOBILE ── */
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .mobile-menu-btn { display: block; }
@@ -1105,17 +1165,23 @@
         box-shadow: 0 8px 30px rgba(0,0,0,0.1);
       }
 
-      .hero { padding: 100px 0 40px; max-height: none; }
-      .hero h1 { font-size: 36px; }
-      .hero-phone { width: 140px; height: 280px; border-radius: 24px; border-width: 5px; }
-      .float-updrs { right: -30px; top: 5px; transform: scale(0.65); }
-      .float-streak-card { left: -20px; bottom: 20px; transform: scale(0.65); }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+      .hero { padding: 100px 0 48px; }
+      .hero-grid { grid-template-columns: 1fr; text-align: center; }
+      .hero-content { align-items: center; }
+      .hero-subtitle { margin-left: auto; margin-right: auto; }
+      .hero-buttons { justify-content: center; }
+      .hero h1 { font-size: 32px; }
+      .hero-visual { margin-top: 32px; }
+      .hero-phone { width: 180px; height: 360px; border-radius: 28px; border-width: 5px; }
+      .float-trend-card { right: -20px; top: 10px; }
+      .float-streak-card { left: -20px; bottom: 20px; }
+      .stats-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .stat-item .stat-number { font-size: 28px; }
       .features-grid { grid-template-columns: 1fr; }
       .steps-grid { grid-template-columns: repeat(2, 1fr); }
       .steps-grid::before { display: none; }
       .doctors-grid { grid-template-columns: 1fr; }
-      .founder-grid { grid-template-columns: 1fr; }
+      .story-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .section-title { font-size: 32px; }
       .cta-section h2 { font-size: 32px; }
@@ -1125,16 +1191,16 @@
 
     @media (max-width: 480px) {
       .hero h1 { font-size: 28px; }
-      .hero-phone { width: 120px; height: 240px; border-radius: 20px; border-width: 4px; }
-      .hero-phone-screen { transform: scale(0.55); padding: 6px 4px; }
-      .float-updrs { right: -20px; top: 0; transform: scale(0.55); }
-      .float-streak-card { left: -15px; bottom: 10px; transform: scale(0.55); }
-      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .hero-phone { width: 160px; height: 320px; border-radius: 24px; border-width: 4px; }
+      .hero-phone-screen { transform: scale(0.6); padding: 8px 6px; }
+      .float-trend-card { right: -10px; top: 5px; transform: scale(0.85); }
+      .float-streak-card { left: -10px; bottom: 10px; transform: scale(0.85); }
+      .stats-grid { grid-template-columns: 1fr; gap: 20px; }
       .steps-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
       .hero-buttons { flex-direction: column; }
       .btn-primary, .btn-secondary { justify-content: center; }
-      .founder-stats { grid-template-columns: 1fr; }
+      .story-values { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -1142,20 +1208,20 @@
   <!-- NAV -->
   <nav id="navbar">
     <div class="container nav-inner">
-      <a href="#" class="logo"><img src="logo-full.png" alt="LoveDopa" class="logo-img" fetchpriority="high" width="160" height="44"></a>
+      <a href="/" class="logo"><img src="logo-full.png" alt="LoveDopa" class="logo-img" fetchpriority="high" width="160" height="44"></a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#features" data-i18n="nav_features">Funcionalidades</a></li>
         <li><a href="#how" data-i18n="nav_how">Como funciona</a></li>
-        <li><a href="#doctors" data-i18n="nav_doctors">Para Medicos</a></li>
-        <li><a href="#story" data-i18n="nav_story">Nossa Historia</a></li>
+        <li><a href="#doctors" data-i18n="nav_doctors">Para M&#233;dicos</a></li>
         <li><a href="/blog/" data-i18n="nav_blog">Blog</a></li>
         <li>
           <div class="lang-switch">
-            <button class="lang-btn active" id="langPt" onclick="setLang('pt')">PT</button>
-            <button class="lang-btn" id="langEn" onclick="setLang('en')">EN</button>
+            <button class="lang-btn active" id="langPt" onclick="setLang('pt')" aria-label="Portugu&#234;s">PT</button>
+            <button class="lang-btn" id="langEn" onclick="setLang('en')" aria-label="English">EN</button>
           </div>
         </li>
-        <li><a href="#cta" class="nav-cta" data-i18n="nav_cta">Comece Agora</a></li>
+        <li><a href="https://app.lovedopa.org" class="nav-login" data-i18n="nav_login">Entrar</a></li>
+        <li><a href="https://app.lovedopa.org/signup" class="nav-cta" data-i18n="nav_cta">Comece Gr&#225;tis</a></li>
       </ul>
       <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menu">
         <span></span><span></span><span></span>
@@ -1165,157 +1231,82 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="hero-badge" data-i18n="hero_badge">Parkinson Digital Health</div>
-        <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(42,157,143,0.1);border:1px solid rgba(42,157,143,0.2);border-radius:20px;padding:6px 16px;font-size:13px;font-weight:600;color:var(--ld-teal);margin-bottom:12px;">
-          <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#2a9d8f;animation:pulse 2s infinite;"></span>
-          30+ patients tracking daily
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge" data-i18n="hero_badge">Sa&#250;de Digital para Parkinson</div>
+          <h1 data-i18n-html="hero_title">Seu neurologista te v&#234; 15 min a cada 3 meses.<br><span class="coral">Entregue a ele</span> <span class="teal">semanas de dados reais</span>.</h1>
+          <p class="hero-subtitle" data-i18n="hero_subtitle">O di&#225;rio gratuito de sintomas do Parkinson que registra tremor, efeitos de medica&#231;&#227;o e padr&#245;es de humor &#8212; para que seu m&#233;dico ajuste o tratamento com dados, n&#227;o com suposi&#231;&#245;es.</p>
+          <div class="hero-buttons">
+            <a href="https://app.lovedopa.org/signup" class="btn-primary" data-i18n="hero_cta_primary">Come&#231;ar Gr&#225;tis &rarr;</a>
+            <a href="https://app.lovedopa.org/waitlist-medicos" class="btn-secondary" data-i18n="hero_cta_secondary">Sou M&#233;dico</a>
+          </div>
+          <p class="hero-micro" data-i18n="hero_micro_copy">Sem download. Funciona no navegador. Gratuito para pacientes.</p>
         </div>
-        <!-- lovedopa-cro-20260921: outcome-driven headline + larger CTA — 91% bounce, 3s avg, 0.1 scroll/session -->
-        <h1 data-i18n-html="hero_title">Your neurologist sees you 15 min every 3 months.<br/><span class="coral">Give them</span> <span class="teal">weeks of real data</span>.</h1>
-        <p class="hero-subtitle" data-i18n="hero_subtitle" style="margin-bottom:24px;">The free Parkinson's symptom diary that tracks tremor, medication effects, and mood patterns — so your doctor adjusts treatment based on data, not guesswork.</p>
-        <div style="display:flex;justify-content:center;margin-bottom:24px;">
-          <a href="https://app.lovedopa.org/signup" class="btn-primary" data-i18n="hero_cta_immediate" style="font-size:20px;padding:20px 44px;box-shadow:0 6px 20px rgba(232,99,74,0.35);">Start my free diary &rarr;</a>
-        </div>
-        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;">
-          <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(42,157,143,0.1);border:1px solid rgba(42,157,143,0.2);border-radius:20px;padding:6px 16px;font-size:13px;font-weight:600;color:var(--ld-teal);" data-i18n="hero_pill_track">No app download needed</span>
-          <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(232,99,74,0.1);border:1px solid rgba(232,99,74,0.2);border-radius:20px;padding:6px 16px;font-size:13px;font-weight:600;color:var(--ld-coral);" data-i18n="hero_pill_free">100% free</span>
-          <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(42,157,143,0.1);border:1px solid rgba(42,157,143,0.2);border-radius:20px;padding:6px 16px;font-size:13px;font-weight:600;color:var(--ld-teal);" data-i18n="hero_pill_data">Data your doctor needs</span>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-phone">
-          <div class="hero-phone-screen">
-            <div class="phone-header">
-              <div class="phone-greeting">
-                <span data-i18n="phone_greeting_label">Bom dia,</span>
-                <strong>Carlos</strong>
-              </div>
-              <div class="phone-streak">
-                <div class="phone-streak-num">14</div>
-                <div class="phone-streak-label" data-i18n="phone_streak">dias seguidos</div>
-              </div>
-            </div>
-            <div class="phone-card">
-              <div class="phone-card-title" data-i18n="phone_diary_title">Diario de Hoje</div>
-              <div class="phone-sliders">
-                <div class="phone-slider-row">
-                  <span class="phone-slider-label" data-i18n="phone_tremor">Tremor</span>
-                  <div class="phone-slider-track"><div class="phone-slider-fill coral" style="width:35%"></div></div>
+        <div class="hero-visual">
+          <div class="hero-phone">
+            <div class="hero-phone-screen">
+              <div class="phone-header">
+                <div class="phone-greeting">
+                  <span data-i18n="phone_greeting_label">Bom dia,</span>
+                  <strong>Carlos</strong>
                 </div>
-                <div class="phone-slider-row">
-                  <span class="phone-slider-label" data-i18n="phone_mobility">Mobilidade</span>
-                  <div class="phone-slider-track"><div class="phone-slider-fill teal" style="width:70%"></div></div>
-                </div>
-                <div class="phone-slider-row">
-                  <span class="phone-slider-label" data-i18n="phone_mood">Humor</span>
-                  <div class="phone-slider-track"><div class="phone-slider-fill gold" style="width:80%"></div></div>
+                <div class="phone-streak">
+                  <div class="phone-streak-num">14</div>
+                  <div class="phone-streak-label" data-i18n="phone_streak">dias seguidos</div>
                 </div>
               </div>
-            </div>
-            <div class="phone-card">
-              <div class="phone-card-title" data-i18n="phone_meds_title">Medicacoes</div>
-              <div class="phone-med-row">
-                <span class="phone-med-name">Levodopa 250mg</span>
-                <span class="phone-med-time">08:00</span>
-                <div class="phone-med-check">&#10003;</div>
+              <div class="phone-card">
+                <div class="phone-card-title" data-i18n="phone_diary_title">Di&#225;rio de Hoje</div>
+                <div class="phone-sliders">
+                  <div class="phone-slider-row">
+                    <span class="phone-slider-label" data-i18n="phone_tremor">Tremor</span>
+                    <div class="phone-slider-track"><div class="phone-slider-fill coral" style="width:35%"></div></div>
+                  </div>
+                  <div class="phone-slider-row">
+                    <span class="phone-slider-label" data-i18n="phone_mobility">Mobilidade</span>
+                    <div class="phone-slider-track"><div class="phone-slider-fill teal" style="width:70%"></div></div>
+                  </div>
+                  <div class="phone-slider-row">
+                    <span class="phone-slider-label" data-i18n="phone_mood">Humor</span>
+                    <div class="phone-slider-track"><div class="phone-slider-fill gold" style="width:80%"></div></div>
+                  </div>
+                </div>
               </div>
-              <div class="phone-med-row">
-                <span class="phone-med-name">Pramipexol 0.5mg</span>
-                <span class="phone-med-time">14:00</span>
-                <div class="phone-med-check">&#10003;</div>
+              <div class="phone-card">
+                <div class="phone-card-title" data-i18n="phone_meds_title">Medica&#231;&#245;es</div>
+                <div class="phone-med-row">
+                  <span class="phone-med-name">Levodopa 250mg</span>
+                  <span class="phone-med-time">08:00</span>
+                  <div class="phone-med-check">&#10003;</div>
+                </div>
+                <div class="phone-med-row">
+                  <span class="phone-med-name">Pramipexol 0.5mg</span>
+                  <span class="phone-med-time">14:00</span>
+                  <div class="phone-med-check">&#10003;</div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="hero-float-card float-updrs">
-          <div class="label">UPDRS III</div>
-          <div class="value">12</div>
-          <div class="change">-38% <span data-i18n="float_period">em 90 dias</span></div>
-        </div>
-        <div class="hero-float-card float-streak-card">
-          <div class="streak-visual">
-            <div class="streak-dot"></div>
-            <div class="streak-dot"></div>
-            <div class="streak-dot"></div>
-            <div class="streak-dot"></div>
-            <div class="streak-dot"></div>
-            <div class="streak-dot"></div>
-            <div class="streak-dot"></div>
+          <div class="hero-float-card float-trend-card">
+            <div class="trend-icon">&#128200;</div>
+            <div class="trend-label" data-i18n="float_trend_label">Tend&#234;ncias</div>
+            <div class="trend-text" data-i18n="float_trend_text">Visualize padr&#245;es</div>
           </div>
-          <div class="streak-text" data-i18n="float_streak">7 dias de streak!</div>
+          <div class="hero-float-card float-streak-card">
+            <div class="streak-visual">
+              <div class="streak-dot"></div>
+              <div class="streak-dot"></div>
+              <div class="streak-dot"></div>
+              <div class="streak-dot"></div>
+              <div class="streak-dot"></div>
+              <div class="streak-dot"></div>
+              <div class="streak-dot"></div>
+            </div>
+            <div class="streak-text" data-i18n="float_streak">7 dias de streak!</div>
+          </div>
         </div>
       </div>
-      <div>
-        <p style="font-size:16px;font-weight:600;color:var(--ld-teal);margin-bottom:16px;" data-i18n="hero_social_proof">2,000+ symptom entries tracked by patients worldwide. Built with movement disorder specialists.</p>
-        <div class="hero-buttons">
-          <a href="https://app.lovedopa.org/signup" class="btn-primary" data-i18n="hero_cta_primary">Start Your Free Diary — 30 Seconds</a>
-          <a href="https://app.lovedopa.org/waitlist-medicos" class="btn-secondary" data-i18n="hero_cta_secondary">I'm a Doctor</a>
-        </div>
-        <!-- lovedopa-cro-20260917: time-to-value clarity — 100% bounce, 0s engagement -->
-        <p style="font-size:14px;font-weight:500;color:var(--ld-text-secondary);margin-top:12px;letter-spacing:0.02em;" data-i18n="hero_time_to_value">Log symptoms in 30 seconds. See your patterns in a week.</p>
-        <p style="font-size:14px;font-weight:600;color:var(--ld-teal);margin-top:8px;" data-i18n="hero_urgency">Free forever for early adopters</p>
-        <p style="font-size:13px;color:var(--ld-text-tertiary);margin-top:8px;" data-i18n="hero_micro_copy">Sem download. Funciona no navegador.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- lovedopa-cro-20260918: visual demo section to increase scroll rate from 20% to >50% -->
-  <section style="padding:48px 0 32px;background:white;border-bottom:1px solid var(--ld-pearl);">
-    <div class="container" style="text-align:center;max-width:720px;">
-      <h2 style="font-size:28px;font-weight:700;color:var(--ld-navy);margin-bottom:8px;">How it works in practice</h2>
-      <p style="font-size:16px;color:var(--ld-text-secondary);margin-bottom:32px;">Log your day in 3 taps. See patterns your neurologist needs.</p>
-      <div style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;">
-        <div style="flex:1;min-width:200px;max-width:280px;background:var(--ld-surface);border-radius:var(--ld-radius-lg);padding:24px;text-align:center;">
-          <div style="font-size:32px;margin-bottom:12px;">&#128221;</div>
-          <div style="font-size:15px;font-weight:700;color:var(--ld-navy);margin-bottom:6px;">1. Log symptoms</div>
-          <p style="font-size:13px;color:var(--ld-text-secondary);line-height:1.5;">Slide to rate tremor, mobility, mood. Done in 60 seconds.</p>
-        </div>
-        <div style="flex:1;min-width:200px;max-width:280px;background:var(--ld-surface);border-radius:var(--ld-radius-lg);padding:24px;text-align:center;">
-          <div style="font-size:32px;margin-bottom:12px;">&#128200;</div>
-          <div style="font-size:15px;font-weight:700;color:var(--ld-navy);margin-bottom:6px;">2. Spot patterns</div>
-          <p style="font-size:13px;color:var(--ld-text-secondary);line-height:1.5;">See which medications and habits improve your symptoms over time.</p>
-        </div>
-        <div style="flex:1;min-width:200px;max-width:280px;background:var(--ld-surface);border-radius:var(--ld-radius-lg);padding:24px;text-align:center;">
-          <div style="font-size:32px;margin-bottom:12px;">&#129658;</div>
-          <p style="font-size:15px;font-weight:700;color:var(--ld-navy);margin-bottom:6px;">3. Share with your doctor</p>
-          <p style="font-size:13px;color:var(--ld-text-secondary);line-height:1.5;">Export clean reports that help your neurologist adjust treatment.</p>
-        </div>
-      </div>
-      <a href="#features" style="display:inline-flex;align-items:center;gap:8px;color:var(--ld-teal);font-size:14px;font-weight:600;text-decoration:none;">
-        See how it works
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5"/></svg>
-      </a>
-    </div>
-  </section>
-
-  <!-- SOCIAL PROOF STRIP (includes testimonial + trust badge moved from hero — lovedopa-cro-20260821) -->
-  <section style="padding:20px 0;background:white;border-bottom:1px solid var(--ld-pearl);">
-    <div class="container" style="display:flex;flex-direction:column;align-items:center;gap:20px;">
-      <!-- Testimonial (moved from hero) -->
-      <div data-i18n-html="hero_testimonial" style="background:rgba(42,157,143,0.06);border:1px solid rgba(42,157,143,0.15);border-radius:var(--ld-radius-lg);padding:16px 20px;max-width:600px;text-align:left;">
-        <p style="font-size:15px;color:var(--ld-text-primary);font-style:italic;line-height:1.5;margin-bottom:8px;">&ldquo;Finally, something that actually helps me see my patterns. My neurologist was impressed with the data.&rdquo;</p>
-        <p style="font-size:13px;font-weight:600;color:var(--ld-teal);margin:0;">&mdash; Ana, 58, living with Parkinson&rsquo;s since 2019</p>
-      </div>
-      <!-- Trust badge (moved from hero) -->
-      <div style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:rgba(42,157,143,0.08);border:1px solid rgba(42,157,143,0.15);border-radius:24px;">
-        <span style="font-size:16px;">&#9989;</span>
-        <span style="font-size:14px;font-weight:600;color:var(--ld-teal);" data-i18n="hero_trust_badge">Usado por 200+ familias gerenciando Parkinson diariamente</span>
-      </div>
-    </div>
-    <div class="container" style="display:flex;justify-content:center;align-items:center;gap:32px;flex-wrap:wrap;text-align:center;margin-top:20px;">
-      <span style="font-size:14px;color:var(--ld-text-secondary);font-weight:500;display:flex;align-items:center;gap:8px;">
-        <span style="color:var(--ld-teal);font-weight:700;">12+</span> <span data-i18n="proof_articles">artigos publicados sobre Parkinson</span>
-      </span>
-      <span style="color:var(--ld-pearl);font-size:18px;">|</span>
-      <span style="font-size:14px;color:var(--ld-text-secondary);font-weight:500;display:flex;align-items:center;gap:8px;">
-        <span style="color:var(--ld-teal);font-weight:700;">3</span> <span data-i18n="proof_countries">paises com usuarios ativos</span>
-      </span>
-      <span style="color:var(--ld-pearl);font-size:18px;">|</span>
-      <span style="font-size:14px;color:var(--ld-text-secondary);font-weight:500;display:flex;align-items:center;gap:8px;">
-        <span style="color:var(--ld-coral);font-weight:700;font-size:16px;">&#9829;</span> <span data-i18n="proof_built">feito por quem convive com Parkinson</span>
-      </span>
     </div>
   </section>
 
@@ -1325,15 +1316,11 @@
       <div class="stats-grid">
         <div class="stat-item">
           <div class="stat-number">6</div>
-          <div class="stat-label" data-i18n="stat_dimensions">dimensoes rastreadas</div>
+          <div class="stat-label" data-i18n="stat_dimensions">dimens&#245;es rastreadas</div>
         </div>
         <div class="stat-item">
-          <div class="stat-number">10</div>
-          <div class="stat-label" data-i18n="stat_levels">niveis de gamificacao</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">2min</div>
-          <div class="stat-label" data-i18n="stat_daily">registro diario</div>
+          <div class="stat-number">&lt;2min</div>
+          <div class="stat-label" data-i18n="stat_daily">registro di&#225;rio</div>
         </div>
         <div class="stat-item">
           <div class="stat-number">100%</div>
@@ -1354,33 +1341,33 @@
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon coral">&#128221;</div>
-          <h3 data-i18n="f1_title">Diario de Sintomas</h3>
+          <h3 data-i18n="f1_title">Di&#225;rio de Sintomas</h3>
           <p data-i18n="f1_desc">Registre tremor, rigidez, mobilidade, humor, sono e energia com sliders simples. Menos de 2 minutos por dia.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon teal">&#128138;</div>
-          <h3 data-i18n="f2_title">Tracking de Medicacoes</h3>
-          <p data-i18n="f2_desc">Lembretes inteligentes, log de doses, correlacao com sintomas. Veja como cada medicacao afeta seu bem-estar.</p>
+          <h3 data-i18n="f2_title">Tracking de Medica&#231;&#245;es</h3>
+          <p data-i18n="f2_desc">Lembretes inteligentes, log de doses, correla&#231;&#227;o com sintomas. Veja como cada medica&#231;&#227;o afeta seu bem-estar.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon navy">&#128200;</div>
-          <h3 data-i18n="f3_title">Trends e Insights</h3>
-          <p data-i18n="f3_desc">Visualize sua evolucao ao longo do tempo. Identifique padroes que nem voce sabia que existiam.</p>
+          <h3 data-i18n="f3_title">Tend&#234;ncias e Insights</h3>
+          <p data-i18n="f3_desc">Visualize sua evolu&#231;&#227;o ao longo do tempo. Identifique padr&#245;es que nem voc&#234; sabia que existiam.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon coral">&#127942;</div>
-          <h3 data-i18n="f4_title">Gamificacao</h3>
-          <p data-i18n="f4_desc">Streaks, missoes diarias, badges e niveis. Manter a consistencia nunca foi tao motivador.</p>
+          <h3 data-i18n="f4_title">Gamifica&#231;&#227;o</h3>
+          <p data-i18n="f4_desc">Streaks, miss&#245;es di&#225;rias, badges e n&#237;veis. Manter a consist&#234;ncia nunca foi t&#227;o motivador.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon teal">&#128101;</div>
           <h3 data-i18n="f5_title">Tribo</h3>
-          <p data-i18n="f5_desc">Comunidade de apoio. Compartilhe vitorias, troque experiencias e sinta que voce nao esta sozinho.</p>
+          <p data-i18n="f5_desc">Comunidade de apoio. Compartilhe vit&#243;rias, troque experi&#234;ncias e sinta que voc&#234; n&#227;o est&#225; sozinho.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon navy">&#128203;</div>
-          <h3 data-i18n="f6_title">Relatorio para o Medico</h3>
-          <p data-i18n="f6_desc">Gere um PDF completo com seus dados antes da consulta. Seu neurologista tera semanas de dados objetivos.</p>
+          <h3 data-i18n="f6_title">Relat&#243;rio para o M&#233;dico</h3>
+          <p data-i18n="f6_desc">Gere um PDF completo com seus dados antes da consulta. Seu neurologista ter&#225; semanas de dados objetivos.</p>
         </div>
       </div>
     </div>
@@ -1392,28 +1379,28 @@
       <div class="section-header">
         <div class="section-label" data-i18n="how_label">Como Funciona</div>
         <h2 class="section-title" data-i18n="how_title">Simples como deveria ser</h2>
-        <p class="section-subtitle" data-i18n="how_subtitle">Comece em minutos. Sem complicacao, sem burocracia.</p>
+        <p class="section-subtitle" data-i18n="how_subtitle">Comece em minutos. Sem complica&#231;&#227;o, sem burocracia.</p>
       </div>
       <div class="steps-grid">
         <div class="step">
           <div class="step-number">1</div>
           <h3 data-i18n="step1_title">Crie sua conta</h3>
-          <p data-i18n="step1_desc">Cadastro rapido com email. Opcional: upload da receita para configuracao automatica.</p>
+          <p data-i18n="step1_desc">Cadastro r&#225;pido com e-mail. Opcional: upload da receita para configura&#231;&#227;o autom&#225;tica.</p>
         </div>
         <div class="step">
           <div class="step-number">2</div>
           <h3 data-i18n="step2_title">Registre diariamente</h3>
-          <p data-i18n="step2_desc">2 minutos por dia. Sliders intuitivos para sintomas, medicacoes e bem-estar.</p>
+          <p data-i18n="step2_desc">2 minutos por dia. Sliders intuitivos para sintomas, medica&#231;&#245;es e bem-estar.</p>
         </div>
         <div class="step">
           <div class="step-number">3</div>
-          <h3 data-i18n="step3_title">Veja seus padroes</h3>
-          <p data-i18n="step3_desc">AI identifica correlacoes entre medicacoes, habitos e sintomas.</p>
+          <h3 data-i18n="step3_title">Veja seus padr&#245;es</h3>
+          <p data-i18n="step3_desc">Identifique correla&#231;&#245;es entre medica&#231;&#245;es, h&#225;bitos e sintomas.</p>
         </div>
         <div class="step">
           <div class="step-number">4</div>
-          <h3 data-i18n="step4_title">Compartilhe com o medico</h3>
-          <p data-i18n="step4_desc">Gere relatorios PDF completos para consultas mais produtivas.</p>
+          <h3 data-i18n="step4_title">Compartilhe com o m&#233;dico</h3>
+          <p data-i18n="step4_desc">Gere relat&#243;rios PDF completos para consultas mais produtivas.</p>
         </div>
       </div>
     </div>
@@ -1423,9 +1410,9 @@
   <section class="doctors" id="doctors">
     <div class="container">
       <div class="section-header">
-        <div class="section-label" data-i18n="doc_label">Portal Medico</div>
-        <h2 class="section-title" data-i18n="doc_title">Dados objetivos para decisoes melhores</h2>
-        <p class="section-subtitle" data-i18n="doc_subtitle">Acompanhe seus pacientes com dados reais do dia-a-dia, nao apenas o que eles lembram na consulta.</p>
+        <div class="section-label" data-i18n="doc_label">Portal M&#233;dico</div>
+        <h2 class="section-title" data-i18n="doc_title">Dados objetivos para decis&#245;es melhores</h2>
+        <p class="section-subtitle" data-i18n="doc_subtitle">Acompanhe seus pacientes com dados reais do dia a dia, n&#227;o apenas o que eles lembram na consulta.</p>
       </div>
       <div class="doctors-grid">
         <div class="doctor-features">
@@ -1433,28 +1420,28 @@
             <div class="doctor-feature-icon">&#128202;</div>
             <div>
               <h4 data-i18n="df1_title">Dashboard Multi-Paciente</h4>
-              <p data-i18n="df1_desc">Visao geral de todos seus pacientes com alertas automaticos de deterioracao.</p>
+              <p data-i18n="df1_desc">Vis&#227;o geral de todos seus pacientes com alertas autom&#225;ticos de deteriora&#231;&#227;o.</p>
             </div>
           </div>
           <div class="doctor-feature">
             <div class="doctor-feature-icon">&#128200;</div>
             <div>
-              <h4 data-i18n="df2_title">UPDRS Completa + Trends</h4>
-              <p data-i18n="df2_desc">Escala UPDRS integrada com evolucao temporal. Dados objetivos para cada dimensao.</p>
+              <h4 data-i18n="df2_title">UPDRS Completa + Tend&#234;ncias</h4>
+              <p data-i18n="df2_desc">Escala UPDRS integrada com evolu&#231;&#227;o temporal. Dados objetivos para cada dimens&#227;o.</p>
             </div>
           </div>
           <div class="doctor-feature">
             <div class="doctor-feature-icon">&#128300;</div>
             <div>
-              <h4 data-i18n="df3_title">Exames e Genetica</h4>
-              <p data-i18n="df3_desc">Integracao de resultados laboratoriais, imagem e analise farmacogenomica personalizada.</p>
+              <h4 data-i18n="df3_title">Exames e Gen&#233;tica</h4>
+              <p data-i18n="df3_desc">Integra&#231;&#227;o de resultados laboratoriais, imagem e an&#225;lise farmacogen&#244;mica personalizada.</p>
             </div>
           </div>
           <div class="doctor-feature">
             <div class="doctor-feature-icon">&#128196;</div>
             <div>
-              <h4 data-i18n="df4_title">Relatorios PDF Automaticos</h4>
-              <p data-i18n="df4_desc">Relatorios clinicos com branding, prontos para arquivo ou encaminhamento.</p>
+              <h4 data-i18n="df4_title">Relat&#243;rios PDF Autom&#225;ticos</h4>
+              <p data-i18n="df4_desc">Relat&#243;rios cl&#237;nicos com branding, prontos para arquivo ou encaminhamento.</p>
             </div>
           </div>
         </div>
@@ -1467,66 +1454,65 @@
             <div class="patient-row">
               <span class="patient-name">Carlos M. Silva</span>
               <span class="patient-score">UPDRS 12</span>
-              <span class="patient-trend">-38%</span>
+              <span class="patient-trend">&#8595; 3pts</span>
               <div class="patient-alert green"></div>
             </div>
             <div class="patient-row">
               <span class="patient-name">Ana L. Santos</span>
               <span class="patient-score">UPDRS 18</span>
-              <span class="patient-trend">-12%</span>
+              <span class="patient-trend">&#8595; 1pt</span>
               <div class="patient-alert yellow"></div>
             </div>
             <div class="patient-row">
               <span class="patient-name">Roberto J. Lima</span>
               <span class="patient-score">UPDRS 24</span>
-              <span class="patient-trend">+5%</span>
+              <span class="patient-trend">&#8593; 2pts</span>
               <div class="patient-alert red"></div>
             </div>
           </div>
+          <div class="dashboard-label" data-i18n="dash_illustration">Ilustra&#231;&#227;o do painel m&#233;dico</div>
         </div>
       </div>
-      <div style="text-align:center;margin-top:40px;">
-        <a href="https://app.lovedopa.org/waitlist-medicos" class="btn-primary" data-i18n="doc_cta" style="background:var(--ld-teal);display:inline-block;">Entrar na Lista de Espera</a>
+      <div style="text-align:center;margin-top:48px;">
+        <a href="https://app.lovedopa.org/waitlist-medicos" class="btn-primary" style="background:var(--ld-teal);display:inline-flex;" data-i18n="doc_cta">Entrar na Lista de Espera</a>
       </div>
     </div>
   </section>
 
-  <!-- FOUNDER STORY -->
-  <section class="founder" id="story">
+  <!-- OUR STORY -->
+  <section class="story-section" id="story">
     <div class="container">
       <div class="section-header">
-        <div class="section-label" data-i18n="story_label">Nossa Historia</div>
+        <div class="section-label" data-i18n="story_label">Nossa Hist&#243;ria</div>
         <h2 class="section-title" data-i18n="story_title">Criado por quem vive a jornada</h2>
-        <p class="section-subtitle" data-i18n="story_subtitle">LoveDopa nasceu da experiencia real de conviver com Parkinson e da frustacao com a falta de ferramentas digitais adequadas.</p>
+        <p class="section-subtitle" data-i18n="story_subtitle">LoveDopa nasceu da experi&#234;ncia real de conviver com Parkinson e da frustra&#231;&#227;o com a falta de ferramentas digitais adequadas.</p>
       </div>
-      <div class="founder-grid">
-        <div class="founder-quote">
-          <blockquote data-i18n="story_quote">"Depois de meses monitorando dados reais de sintomas, vimos quedas significativas no UPDRS de usuarios. Gaps em suplementacao e sono correlacionavam diretamente com piora nos scores. Dados que nenhum prontuario tradicional teria capturado."</blockquote>
-          <div class="founder-attribution">
-            <div class="founder-avatar" style="font-size:24px;">&#10084;</div>
-            <div>
-              <div class="founder-name" data-i18n="story_founder_name">Equipe LoveDopa</div>
-              <div class="founder-role" data-i18n="story_role">Fundadores &amp; Pacientes PD</div>
-            </div>
-          </div>
+      <div class="story-grid">
+        <div class="story-content">
+          <h3 data-i18n="story_mission_title">Ci&#234;ncia que cuida. Dados que transformam.</h3>
+          <p data-i18n="story_mission_p1">Seu neurologista te v&#234; por 15 minutos a cada 3 meses. Nesse curto intervalo, ele precisa tomar decis&#245;es que afetam seus pr&#243;ximos 90 dias. Sem dados do dia a dia, o tratamento vira adivinha&#231;&#227;o.</p>
+          <p data-i18n="story_mission_p2">O LoveDopa existe para preencher essa lacuna. Criamos um di&#225;rio simples, gratuito e motivador que transforma a rotina do paciente em dados cl&#237;nicos acion&#225;veis. Porque quem convive com Parkinson merece um cuidado guiado por evid&#234;ncias, n&#227;o por mem&#243;ria.</p>
         </div>
-        <div class="founder-stats">
-          <div class="founder-stat-card">
-            <div class="founder-stat-number">&#8595; UPDRS</div>
-            <div class="founder-stat-label" data-i18n="stat_updrs_result">reducao comprovada</div>
-            <div class="founder-stat-change" data-i18n="stat_months">em poucos meses</div>
+        <div class="story-values">
+          <div class="story-value-card">
+            <div class="story-value-icon">&#128154;</div>
+            <div class="story-value-title" data-i18n="sv1_title">Feito por pacientes</div>
+            <div class="story-value-desc" data-i18n="sv1_desc">Criado por quem entende a jornada do Parkinson</div>
           </div>
-          <div class="founder-stat-card">
-            <div class="founder-stat-number">6</div>
-            <div class="founder-stat-label" data-i18n="stat_pillars">pilares de estilo de vida</div>
+          <div class="story-value-card">
+            <div class="story-value-icon">&#128274;</div>
+            <div class="story-value-title" data-i18n="sv2_title">Privacidade total</div>
+            <div class="story-value-desc" data-i18n="sv2_desc">Seus dados s&#227;o seus. Sempre.</div>
           </div>
-          <div class="founder-stat-card">
-            <div class="founder-stat-number">100%</div>
-            <div class="founder-stat-label" data-i18n="stat_privacy_story">privacidade do paciente</div>
+          <div class="story-value-card">
+            <div class="story-value-icon">&#127919;</div>
+            <div class="story-value-title" data-i18n="sv3_title">Baseado em evid&#234;ncias</div>
+            <div class="story-value-desc" data-i18n="sv3_desc">6 dimens&#245;es cl&#237;nicas validadas</div>
           </div>
-          <div class="founder-stat-card">
-            <div class="founder-stat-number">&#10003;</div>
-            <div class="founder-stat-label" data-i18n="stat_validated">validado com dados reais</div>
+          <div class="story-value-card">
+            <div class="story-value-icon">&#127873;</div>
+            <div class="story-value-title" data-i18n="sv4_title">Gratuito para pacientes</div>
+            <div class="story-value-desc" data-i18n="sv4_desc">Sem custos. Sem pegadinhas.</div>
           </div>
         </div>
       </div>
@@ -1537,8 +1523,8 @@
   <section class="cta-section" id="cta">
     <div class="container cta-content">
       <h2 data-i18n="cta_title">Comece sua jornada hoje</h2>
-      <p data-i18n="cta_desc">Gratuito para pacientes. Seus dados sao seus. Comece a construir o mapa da sua saude agora.</p>
-      <a href="https://app.lovedopa.org" class="btn-white" data-i18n="cta_button">Criar Minha Conta Gratuita</a>
+      <p data-i18n="cta_desc">Gratuito para pacientes. Seus dados s&#227;o seus. Comece a construir o mapa da sua sa&#250;de agora.</p>
+      <a href="https://app.lovedopa.org/signup" class="btn-white" data-i18n="cta_button">Criar Minha Conta Gr&#225;tis</a>
     </div>
   </section>
 
@@ -1547,15 +1533,16 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="#" class="logo"><img src="logo-full.png" alt="LoveDopa" class="logo-img-footer" loading="lazy" width="160" height="52"></a>
-          <p data-i18n="footer_desc">Plataforma digital para gestao personalizada do Parkinson. Ciencia que cuida. Dados que transformam.</p>
+          <a href="/" class="logo"><img src="logo-full.png" alt="LoveDopa" class="logo-img-footer" loading="lazy" width="160" height="52"></a>
+          <p data-i18n="footer_desc">Plataforma digital para gest&#227;o personalizada do Parkinson. Ci&#234;ncia que cuida. Dados que transformam.</p>
         </div>
         <div class="footer-col">
           <h4 data-i18n="footer_product">Produto</h4>
           <ul>
             <li><a href="#features" data-i18n="footer_patients">Para Pacientes</a></li>
-            <li><a href="#doctors" data-i18n="footer_doctors">Para Medicos</a></li>
+            <li><a href="#doctors" data-i18n="footer_doctors">Para M&#233;dicos</a></li>
             <li><a href="#how" data-i18n="footer_how">Como Funciona</a></li>
+            <li><a href="/blog/" data-i18n="nav_blog">Blog</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -1568,7 +1555,7 @@
         <div class="footer-col">
           <h4 data-i18n="footer_legal_title">Legal</h4>
           <ul>
-            <li><a href="#" data-i18n="footer_privacy">Politica de Privacidade</a></li>
+            <li><a href="#" data-i18n="footer_privacy">Pol&#237;tica de Privacidade</a></li>
             <li><a href="#" data-i18n="footer_terms">Termos de Uso</a></li>
             <li><a href="#" data-i18n="footer_lgpd">LGPD</a></li>
           </ul>
@@ -1581,169 +1568,152 @@
           <a href="#" data-i18n="footer_terms_short">Termos</a>
         </div>
       </div>
+      <p class="footer-4profit">Um produto <strong>4Profit AI LLC</strong></p>
     </div>
   </footer>
 
   <script>
-    const translations = {
+    /* ── Translations ── */
+    var translations = {
       pt: {
         nav_features: "Funcionalidades",
         nav_how: "Como funciona",
-        nav_doctors: "Para Medicos",
-        nav_story: "Nossa Historia",
+        nav_doctors: "Para M\u00e9dicos",
         nav_blog: "Blog",
-        nav_cta: "Comece Gratis — 30s",
-        hero_badge: "Parkinson Digital Health",
-        hero_title: 'Seu neurologista te ve 15 min a cada 3 meses.<br/><span class="coral">De a ele</span> <span class="teal">semanas de dados reais</span>.',
-        hero_subtitle: 'O diario gratuito de sintomas do Parkinson que registra tremor, efeitos de medicacao e padroes de humor — para que seu medico ajuste o tratamento com dados, nao com suposicoes.',
-        hero_social_proof: "2.000+ registros de sintomas rastreados por pacientes no mundo todo. Desenvolvido com especialistas em disturbios do movimento.",
-        hero_testimonial: '<p style="font-size:15px;color:var(--ld-text-primary);font-style:italic;line-height:1.5;margin-bottom:8px;">&ldquo;Finalmente algo que me ajuda a enxergar meus padroes. Meu neurologista ficou impressionado com os dados.&rdquo;</p><p style="font-size:13px;font-weight:600;color:var(--ld-teal);margin:0;">&mdash; Ana, 58, convivendo com Parkinson desde 2019</p>',
-        hero_clarifier: "Diario de sintomas para Parkinson. Registre em 30 segundos. Veja padroes em dias.",
-        hero_pill_track: "Registre sintomas em 30s",
-        hero_pill_free: "100% gratuito",
-        hero_pill_data: "Dados para seu medico",
-        hero_cta_primary: "Start Your Free Diary — 30 Seconds",
-        hero_cta_secondary: "Sou Medico",
-        hero_time_to_value: "Registre sintomas em 30 segundos. Veja seus padroes em uma semana.",
-        hero_urgency: "Gratuito para sempre para os primeiros usuarios",
-        hero_micro_copy: "Sem download. Funciona no navegador.",
-        hero_trust_badge: "Usado por 200+ familias gerenciando Parkinson diariamente",
+        nav_login: "Entrar",
+        nav_cta: "Comece Gr\u00e1tis",
+        hero_badge: "Sa\u00fade Digital para Parkinson",
+        hero_title: 'Seu neurologista te v\u00ea 15 min a cada 3 meses.<br><span class="coral">Entregue a ele</span> <span class="teal">semanas de dados reais</span>.',
+        hero_subtitle: "O di\u00e1rio gratuito de sintomas do Parkinson que registra tremor, efeitos de medica\u00e7\u00e3o e padr\u00f5es de humor \u2014 para que seu m\u00e9dico ajuste o tratamento com dados, n\u00e3o com suposi\u00e7\u00f5es.",
+        hero_cta_primary: "Come\u00e7ar Gr\u00e1tis \u2192",
+        hero_cta_secondary: "Sou M\u00e9dico",
+        hero_micro_copy: "Sem download. Funciona no navegador. Gratuito para pacientes.",
         phone_greeting_label: "Bom dia,",
         phone_streak: "dias seguidos",
-        phone_diary_title: "Diario de Hoje",
+        phone_diary_title: "Di\u00e1rio de Hoje",
         phone_tremor: "Tremor",
         phone_mobility: "Mobilidade",
         phone_mood: "Humor",
-        phone_meds_title: "Medicacoes",
-        float_period: "em 90 dias",
+        phone_meds_title: "Medica\u00e7\u00f5es",
+        float_trend_label: "Tend\u00eancias",
+        float_trend_text: "Visualize padr\u00f5es",
         float_streak: "7 dias de streak!",
-        scroll_anchor: "Veja como funciona",
-        stat_dimensions: "dimensoes rastreadas",
-        stat_levels: "niveis de gamificacao",
-        stat_daily: "registro diario",
+        stat_dimensions: "dimens\u00f5es rastreadas",
+        stat_daily: "registro di\u00e1rio",
         stat_privacy: "seus dados, seu controle",
         features_label: "Para Pacientes",
         features_title: "Sua jornada, seus dados, seu controle",
         features_subtitle: "Ferramentas que transformam o acompanhamento do Parkinson em algo simples, motivador e clinicamente relevante.",
-        f1_title: "Diario de Sintomas",
+        f1_title: "Di\u00e1rio de Sintomas",
         f1_desc: "Registre tremor, rigidez, mobilidade, humor, sono e energia com sliders simples. Menos de 2 minutos por dia.",
-        f2_title: "Tracking de Medicacoes",
-        f2_desc: "Lembretes inteligentes, log de doses, correlacao com sintomas. Veja como cada medicacao afeta seu bem-estar.",
-        f3_title: "Trends e Insights",
-        f3_desc: "Visualize sua evolucao ao longo do tempo. Identifique padroes que nem voce sabia que existiam.",
-        f4_title: "Gamificacao",
-        f4_desc: "Streaks, missoes diarias, badges e niveis. Manter a consistencia nunca foi tao motivador.",
+        f2_title: "Tracking de Medica\u00e7\u00f5es",
+        f2_desc: "Lembretes inteligentes, log de doses, correla\u00e7\u00e3o com sintomas. Veja como cada medica\u00e7\u00e3o afeta seu bem-estar.",
+        f3_title: "Tend\u00eancias e Insights",
+        f3_desc: "Visualize sua evolu\u00e7\u00e3o ao longo do tempo. Identifique padr\u00f5es que nem voc\u00ea sabia que existiam.",
+        f4_title: "Gamifica\u00e7\u00e3o",
+        f4_desc: "Streaks, miss\u00f5es di\u00e1rias, badges e n\u00edveis. Manter a consist\u00eancia nunca foi t\u00e3o motivador.",
         f5_title: "Tribo",
-        f5_desc: "Comunidade de apoio. Compartilhe vitorias, troque experiencias e sinta que voce nao esta sozinho.",
-        f6_title: "Relatorio para o Medico",
-        f6_desc: "Gere um PDF completo com seus dados antes da consulta. Seu neurologista tera semanas de dados objetivos.",
+        f5_desc: "Comunidade de apoio. Compartilhe vit\u00f3rias, troque experi\u00eancias e sinta que voc\u00ea n\u00e3o est\u00e1 sozinho.",
+        f6_title: "Relat\u00f3rio para o M\u00e9dico",
+        f6_desc: "Gere um PDF completo com seus dados antes da consulta. Seu neurologista ter\u00e1 semanas de dados objetivos.",
         how_label: "Como Funciona",
         how_title: "Simples como deveria ser",
-        how_subtitle: "Comece em minutos. Sem complicacao, sem burocracia.",
+        how_subtitle: "Comece em minutos. Sem complica\u00e7\u00e3o, sem burocracia.",
         step1_title: "Crie sua conta",
-        step1_desc: "Cadastro rapido com email. Opcional: upload da receita para configuracao automatica.",
+        step1_desc: "Cadastro r\u00e1pido com e-mail. Opcional: upload da receita para configura\u00e7\u00e3o autom\u00e1tica.",
         step2_title: "Registre diariamente",
-        step2_desc: "2 minutos por dia. Sliders intuitivos para sintomas, medicacoes e bem-estar.",
-        step3_title: "Veja seus padroes",
-        step3_desc: "AI identifica correlacoes entre medicacoes, habitos e sintomas.",
-        step4_title: "Compartilhe com o medico",
-        step4_desc: "Gere relatorios PDF completos para consultas mais produtivas.",
-        doc_label: "Portal Medico",
-        doc_title: "Dados objetivos para decisoes melhores",
-        doc_subtitle: "Acompanhe seus pacientes com dados reais do dia-a-dia, nao apenas o que eles lembram na consulta.",
+        step2_desc: "2 minutos por dia. Sliders intuitivos para sintomas, medica\u00e7\u00f5es e bem-estar.",
+        step3_title: "Veja seus padr\u00f5es",
+        step3_desc: "Identifique correla\u00e7\u00f5es entre medica\u00e7\u00f5es, h\u00e1bitos e sintomas.",
+        step4_title: "Compartilhe com o m\u00e9dico",
+        step4_desc: "Gere relat\u00f3rios PDF completos para consultas mais produtivas.",
+        doc_label: "Portal M\u00e9dico",
+        doc_title: "Dados objetivos para decis\u00f5es melhores",
+        doc_subtitle: "Acompanhe seus pacientes com dados reais do dia a dia, n\u00e3o apenas o que eles lembram na consulta.",
         df1_title: "Dashboard Multi-Paciente",
-        df1_desc: "Visao geral de todos seus pacientes com alertas automaticos de deterioracao.",
-        df2_title: "UPDRS Completa + Trends",
-        df2_desc: "Escala UPDRS integrada com evolucao temporal. Dados objetivos para cada dimensao.",
-        df3_title: "Exames e Genetica",
-        df3_desc: "Integracao de resultados laboratoriais, imagem e analise farmacogenomica personalizada.",
-        df4_title: "Relatorios PDF Automaticos",
-        df4_desc: "Relatorios clinicos com branding, prontos para arquivo ou encaminhamento.",
+        df1_desc: "Vis\u00e3o geral de todos seus pacientes com alertas autom\u00e1ticos de deteriora\u00e7\u00e3o.",
+        df2_title: "UPDRS Completa + Tend\u00eancias",
+        df2_desc: "Escala UPDRS integrada com evolu\u00e7\u00e3o temporal. Dados objetivos para cada dimens\u00e3o.",
+        df3_title: "Exames e Gen\u00e9tica",
+        df3_desc: "Integra\u00e7\u00e3o de resultados laboratoriais, imagem e an\u00e1lise farmacogen\u00f4mica personalizada.",
+        df4_title: "Relat\u00f3rios PDF Autom\u00e1ticos",
+        df4_desc: "Relat\u00f3rios cl\u00ednicos com branding, prontos para arquivo ou encaminhamento.",
         dash_title: "Painel de Pacientes",
         dash_badge: "3 ativos",
+        dash_illustration: "Ilustra\u00e7\u00e3o do painel m\u00e9dico",
         doc_cta: "Entrar na Lista de Espera",
-        story_label: "Nossa Historia",
+        story_label: "Nossa Hist\u00f3ria",
         story_title: "Criado por quem vive a jornada",
-        story_subtitle: "LoveDopa nasceu da experiencia real de conviver com Parkinson e da frustracao com a falta de ferramentas digitais adequadas.",
-        story_quote: '"Depois de meses monitorando dados reais de sintomas, vimos quedas significativas no UPDRS de usuarios. Gaps em suplementacao e sono correlacionavam diretamente com piora nos scores. Dados que nenhum prontuario tradicional teria capturado."',
-        story_founder_name: "Equipe LoveDopa",
-        story_role: "Fundadores & Pacientes PD",
-        stat_months: "em poucos meses",
-        stat_updrs_result: "reducao comprovada",
-        stat_pillars: "pilares de estilo de vida",
-        stat_privacy_story: "privacidade do paciente",
-        stat_validated: "validado com dados reais",
+        story_subtitle: "LoveDopa nasceu da experi\u00eancia real de conviver com Parkinson e da frustra\u00e7\u00e3o com a falta de ferramentas digitais adequadas.",
+        story_mission_title: "Ci\u00eancia que cuida. Dados que transformam.",
+        story_mission_p1: "Seu neurologista te v\u00ea por 15 minutos a cada 3 meses. Nesse curto intervalo, ele precisa tomar decis\u00f5es que afetam seus pr\u00f3ximos 90 dias. Sem dados do dia a dia, o tratamento vira adivinha\u00e7\u00e3o.",
+        story_mission_p2: "O LoveDopa existe para preencher essa lacuna. Criamos um di\u00e1rio simples, gratuito e motivador que transforma a rotina do paciente em dados cl\u00ednicos acion\u00e1veis. Porque quem convive com Parkinson merece um cuidado guiado por evid\u00eancias, n\u00e3o por mem\u00f3ria.",
+        sv1_title: "Feito por pacientes",
+        sv1_desc: "Criado por quem entende a jornada do Parkinson",
+        sv2_title: "Privacidade total",
+        sv2_desc: "Seus dados s\u00e3o seus. Sempre.",
+        sv3_title: "Baseado em evid\u00eancias",
+        sv3_desc: "6 dimens\u00f5es cl\u00ednicas validadas",
+        sv4_title: "Gratuito para pacientes",
+        sv4_desc: "Sem custos. Sem pegadinhas.",
         cta_title: "Comece sua jornada hoje",
-        cta_desc: "Gratuito para pacientes. Seus dados sao seus. Comece a construir o mapa da sua saude agora.",
-        cta_button: "Criar Minha Conta Gratuita",
-        footer_desc: "Plataforma digital para gestao personalizada do Parkinson. Ciencia que cuida. Dados que transformam.",
+        cta_desc: "Gratuito para pacientes. Seus dados s\u00e3o seus. Comece a construir o mapa da sua sa\u00fade agora.",
+        cta_button: "Criar Minha Conta Gr\u00e1tis",
+        footer_desc: "Plataforma digital para gest\u00e3o personalizada do Parkinson. Ci\u00eancia que cuida. Dados que transformam.",
         footer_product: "Produto",
         footer_patients: "Para Pacientes",
-        footer_doctors: "Para Medicos",
+        footer_doctors: "Para M\u00e9dicos",
         footer_how: "Como Funciona",
         footer_company: "Empresa",
         footer_about: "Sobre",
         footer_contact: "Contato",
         footer_legal_title: "Legal",
-        footer_privacy: "Politica de Privacidade",
+        footer_privacy: "Pol\u00edtica de Privacidade",
         footer_terms: "Termos de Uso",
         footer_lgpd: "LGPD",
         footer_rights: "Todos os direitos reservados.",
         footer_privacy_short: "Privacidade",
-        footer_terms_short: "Termos",
-        proof_articles: "artigos publicados sobre Parkinson",
-        proof_countries: "paises com usuarios ativos",
-        proof_built: "feito por quem convive com Parkinson"
+        footer_terms_short: "Termos"
       },
       en: {
         nav_features: "Features",
         nav_how: "How it works",
         nav_doctors: "For Doctors",
-        nav_story: "Our Story",
         nav_blog: "Blog",
-        nav_cta: "Start Free — 30s",
+        nav_login: "Log in",
+        nav_cta: "Start Free",
         hero_badge: "Parkinson Digital Health",
-        hero_title: 'Your neurologist sees you 15 min every 3 months.<br/><span class="coral">Give them</span> <span class="teal">weeks of real data</span>.',
-        hero_subtitle: 'The free Parkinson\'s symptom diary that tracks tremor, medication effects, and mood patterns — so your doctor adjusts treatment based on data, not guesswork.',
-        hero_social_proof: "2,000+ symptom entries tracked by patients worldwide. Built with movement disorder specialists.",
-        hero_testimonial: '<p style="font-size:15px;color:var(--ld-text-primary);font-style:italic;line-height:1.5;margin-bottom:8px;">&ldquo;Finally, something that actually helps me see my patterns. My neurologist was impressed with the data.&rdquo;</p><p style="font-size:13px;font-weight:600;color:var(--ld-teal);margin:0;">&mdash; Ana, 58, living with Parkinson&rsquo;s since 2019</p>',
-        hero_clarifier: "\u201CAfter 3 weeks of logging, my neurologist adjusted my Levodopa timing and my tremors dropped 40%.\u201D \u2014 Carlos, 62, diagnosed 2021",
-        hero_pill_track: "Track symptoms in 30s",
-        hero_pill_free: "100% free",
-        hero_pill_data: "Data for your doctor",
-        hero_cta_primary: "Start My Free Diary — Takes 30 Seconds",
-        hero_cta_secondary: "I'm a Doctor",
-        hero_time_to_value: "Log symptoms in 30 seconds. See your patterns in a week.",
-        hero_urgency: "Early access — limited beta spots remaining. Free forever for founding members.",
-        hero_micro_copy: "No download needed. Works in your browser.",
-        hero_trust_badge: "Trusted by 200+ families managing Parkinson's daily across 3 countries",
+        hero_title: 'Your neurologist sees you 15 min every 3 months.<br><span class="coral">Give them</span> <span class="teal">weeks of real data</span>.',
+        hero_subtitle: "The free Parkinson\u2019s symptom diary that tracks tremor, medication effects, and mood patterns \u2014 so your doctor adjusts treatment based on data, not guesswork.",
+        hero_cta_primary: "Start Free \u2192",
+        hero_cta_secondary: "I\u2019m a Doctor",
+        hero_micro_copy: "No download needed. Works in your browser. Free for patients.",
         phone_greeting_label: "Good morning,",
         phone_streak: "day streak",
-        phone_diary_title: "Today's Diary",
+        phone_diary_title: "Today\u2019s Diary",
         phone_tremor: "Tremor",
         phone_mobility: "Mobility",
         phone_mood: "Mood",
         phone_meds_title: "Medications",
-        float_period: "in 90 days",
+        float_trend_label: "Trends",
+        float_trend_text: "Spot your patterns",
         float_streak: "7-day streak!",
-        scroll_anchor: "See how it works",
         stat_dimensions: "dimensions tracked",
-        stat_levels: "gamification levels",
         stat_daily: "daily log",
         stat_privacy: "your data, your control",
         features_label: "For Patients",
         features_title: "Your journey, your data, your control",
-        features_subtitle: "Tools that make Parkinson's management simple, motivating, and clinically meaningful.",
+        features_subtitle: "Tools that make Parkinson\u2019s management simple, motivating, and clinically meaningful.",
         f1_title: "Symptom Diary",
         f1_desc: "Track tremor, rigidity, mobility, mood, sleep, and energy with simple sliders. Less than 2 minutes a day.",
         f2_title: "Medication Tracking",
         f2_desc: "Smart reminders, dose logging, symptom correlation. See how each medication affects your well-being.",
         f3_title: "Trends & Insights",
-        f3_desc: "Visualize your progress over time. Discover patterns you didn't know existed.",
+        f3_desc: "Visualize your progress over time. Discover patterns you didn\u2019t know existed.",
         f4_title: "Gamification",
         f4_desc: "Streaks, daily missions, badges, and levels. Staying consistent has never been more motivating.",
         f5_title: "Tribe",
-        f5_desc: "A support community. Share victories, exchange experiences, and know you're not alone.",
+        f5_desc: "A support community. Share victories, exchange experiences, and know you\u2019re not alone.",
         f6_title: "Doctor Report",
         f6_desc: "Generate a complete PDF with your data before appointments. Give your neurologist weeks of objective data.",
         how_label: "How It Works",
@@ -1754,7 +1724,7 @@
         step2_title: "Log daily",
         step2_desc: "2 minutes a day. Intuitive sliders for symptoms, medications, and well-being.",
         step3_title: "See your patterns",
-        step3_desc: "AI identifies correlations between medications, habits, and symptoms.",
+        step3_desc: "Identify correlations between medications, habits, and symptoms.",
         step4_title: "Share with your doctor",
         step4_desc: "Generate comprehensive PDF reports for more productive appointments.",
         doc_label: "Doctor Portal",
@@ -1770,22 +1740,26 @@
         df4_desc: "Branded clinical reports, ready for filing or referral.",
         dash_title: "Patient Panel",
         dash_badge: "3 active",
+        dash_illustration: "Doctor panel illustration",
         doc_cta: "Join the Waitlist",
         story_label: "Our Story",
-        story_title: "Built by someone living the journey",
-        story_subtitle: "LoveDopa was born from the real experience of living with Parkinson's and the frustration with inadequate digital tools.",
-        story_quote: '"After months tracking real symptom data, we saw significant UPDRS drops across users. Supplementation and sleep gaps directly correlated with score worsening. Data no traditional medical record would have captured."',
-        story_founder_name: "LoveDopa Team",
-        story_role: "Founders & PD Patients",
-        stat_months: "in a few months",
-        stat_updrs_result: "proven reduction",
-        stat_pillars: "lifestyle pillars",
-        stat_privacy_story: "patient privacy",
-        stat_validated: "validated with real data",
-        cta_title: "Start tracking in 30 seconds — free forever",
+        story_title: "Built by people living the journey",
+        story_subtitle: "LoveDopa was born from the real experience of living with Parkinson\u2019s and the frustration with inadequate digital tools.",
+        story_mission_title: "Science that cares. Data that transforms.",
+        story_mission_p1: "Your neurologist sees you for 15 minutes every 3 months. In that short window, they need to make decisions that affect your next 90 days. Without daily data, treatment becomes guesswork.",
+        story_mission_p2: "LoveDopa exists to bridge that gap. We built a simple, free, and motivating diary that turns patient routines into actionable clinical data. Because people living with Parkinson\u2019s deserve evidence-based care, not memory-based care.",
+        sv1_title: "Built by patients",
+        sv1_desc: "Created by people who understand the Parkinson\u2019s journey",
+        sv2_title: "Total privacy",
+        sv2_desc: "Your data is yours. Always.",
+        sv3_title: "Evidence-based",
+        sv3_desc: "6 validated clinical dimensions",
+        sv4_title: "Free for patients",
+        sv4_desc: "No costs. No catches.",
+        cta_title: "Start your journey today",
         cta_desc: "Free for patients. Your data is yours. Start building your health map now.",
         cta_button: "Create My Free Account",
-        footer_desc: "Digital platform for personalized Parkinson's management. Science that cares. Data that transforms.",
+        footer_desc: "Digital platform for personalized Parkinson\u2019s management. Science that cares. Data that transforms.",
         footer_product: "Product",
         footer_patients: "For Patients",
         footer_doctors: "For Doctors",
@@ -1799,18 +1773,15 @@
         footer_lgpd: "LGPD",
         footer_rights: "All rights reserved.",
         footer_privacy_short: "Privacy",
-        footer_terms_short: "Terms",
-        proof_articles: "articles published on Parkinson's",
-        proof_countries: "countries with active users",
-        proof_built: "built by people living with Parkinson's"
+        footer_terms_short: "Terms"
       }
     };
 
-    let currentLang = 'en';
+    var currentLang = 'pt';
 
     function detectLanguage() {
-      const browserLang = navigator.language || navigator.userLanguage || 'en';
-      return browserLang.startsWith('pt') ? 'pt' : 'en';
+      var browserLang = navigator.language || navigator.userLanguage || 'pt';
+      return browserLang.startsWith('pt') ? 'pt' : (browserLang.startsWith('en') ? 'en' : 'pt');
     }
 
     function setLang(lang) {
@@ -1819,50 +1790,52 @@
       document.getElementById('langPt').classList.toggle('active', lang === 'pt');
       document.getElementById('langEn').classList.toggle('active', lang === 'en');
 
-      const t = translations[lang];
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
+      var t = translations[lang];
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
         if (t[key]) {
           el.textContent = t[key];
         }
       });
-      document.querySelectorAll('[data-i18n-html]').forEach(el => {
-        const key = el.getAttribute('data-i18n-html');
+      document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n-html');
         if (t[key]) {
           el.innerHTML = t[key];
         }
       });
 
       document.title = lang === 'pt'
-        ? 'LoveDopa — Você no controle.'
-        : 'LoveDopa — Track symptoms. Spot patterns. Take back control.';
+        ? 'LoveDopa \u2014 Di\u00e1rio de Sintomas do Parkinson'
+        : 'LoveDopa \u2014 Parkinson Symptom Diary';
 
-      document.querySelector('meta[name="description"]').content = lang === 'pt'
-        ? 'Plataforma digital para gestao personalizada do Parkinson. Diario de sintomas, tracking de medicacoes, gamificacao e portal medico.'
-        : 'Digital platform for personalized Parkinson\'s management. Symptom diary, medication tracking, gamification, and doctor portal.';
+      var descEl = document.querySelector('meta[name="description"]');
+      if (descEl) {
+        descEl.content = lang === 'pt'
+          ? 'Di\u00e1rio gratuito de sintomas do Parkinson. Registre tremor, rigidez, humor e medica\u00e7\u00f5es em menos de 2 minutos. Relat\u00f3rio PDF para seu neurologista.'
+          : 'Free Parkinson\u2019s symptom diary. Track tremor, rigidity, mood and medications in under 2 minutes. PDF reports for your neurologist.';
+      }
     }
 
-    // Nav scroll effect
-    window.addEventListener('scroll', () => {
+    /* ── Nav scroll effect ── */
+    window.addEventListener('scroll', function() {
       document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
-    });
+    }, { passive: true });
 
-    // Mobile menu
+    /* ── Mobile menu ── */
     function toggleMenu() {
       document.getElementById('navLinks').classList.toggle('open');
     }
 
-    // Close mobile menu on link click
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+      link.addEventListener('click', function() {
         document.getElementById('navLinks').classList.remove('open');
       });
     });
 
-    // Init
+    /* ── Init language ── */
     setLang(detectLanguage());
 
-    // ── CTA Click Tracking (GA4) ──
+    /* ── CTA Click Tracking (GA4) ── */
     function trackCTA(ctaId, destination) {
       if (typeof gtag === 'function') {
         gtag('event', 'cta_click', {
@@ -1874,7 +1847,6 @@
       }
     }
 
-    // Track all CTA buttons
     document.querySelectorAll('.nav-cta').forEach(function(el) {
       el.addEventListener('click', function() { trackCTA('nav_cta', el.href); });
     });
@@ -1892,7 +1864,7 @@
       el.addEventListener('click', function() { trackCTA('bottom_cta', el.href); });
     });
 
-    // ── Scroll Depth Tracking (GA4) ──
+    /* ── Scroll Depth Tracking (GA4) ── */
     (function() {
       var fired = {};
       function checkScroll() {
@@ -1911,6 +1883,14 @@
       }
       window.addEventListener('scroll', checkScroll, { passive: true });
     })();
+  </script>
+
+  <!-- vortex-visitas -->
+  <script>
+  (function(){
+    var d={company:"lovedopa",page:location.pathname,ref:document.referrer,ua:navigator.userAgent};
+    fetch("https://vortex.4profitai.com/api/capture/visit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)}).catch(function(){});
+  })();
   </script>
 </body>
 </html>
