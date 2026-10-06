@@ -20,6 +20,7 @@ a { color: inherit; }
 .nav li a:hover, .nav li a[aria-current] { color: var(--navy); background: rgba(196,184,154,.25); }
 .nav .cta { background: var(--coral); color: #fff !important; font-weight: 700; }
 .nav .cta:hover { background: var(--coral-dark) !important; }
+.nav .cta { white-space: nowrap; }
 
 .hero { background: radial-gradient(1200px 400px at 85% -10%, rgba(42,157,143,.35), transparent 60%), radial-gradient(900px 400px at -10% 120%, rgba(232,99,74,.35), transparent 60%), var(--navy); color: #fff; padding: 56px 0 72px; }
 .hero h1 { font-size: clamp(34px, 5vw, 54px); line-height: 1.08; margin: 14px 0 12px; letter-spacing: -.02em; font-weight: 800; }
@@ -87,6 +88,8 @@ footer { border-top: 1px solid rgba(196,184,154,.5); padding: 26px 0 40px; color
 @media (max-width: 640px) {
   body { font-size: 17px; }
   .nav .hide-sm, .actions .hide-sm { display: none; }
+  .nav li a { padding: 0 12px; }
+  .brand { font-size: 19px; }
   .item, .digest { padding: 20px; }
   .item h3 { font-size: 22px; }
   .row { flex-direction: column; align-items: stretch; }
