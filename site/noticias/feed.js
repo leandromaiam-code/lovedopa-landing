@@ -69,10 +69,15 @@
       ]),
       el("h3", { text: i.title_pt }),
       i.takeaway_pt ? el("p", { class: "takeaway", text: i.takeaway_pt }) : null,
-      el("p", { class: "summary", text: i.summary_pt }),
-      el("div", { class: "comment" }, [el("strong", { text: "Comentário do LoveDopa" }), el("p", { text: i.comment_pt })]),
+      el("div", { class: "locked" }, [
+        el("div", { class: "locked__txt" }, [
+          el("strong", { text: "Resumo e comentário do LoveDopa" }),
+          el("span", { text: "Para quem está na plataforma · fonte: " + i.source_name }),
+        ]),
+        el("a", { class: "btn btn-lock", href: "https://app.lovedopa.org/lista-de-espera?origem=noticia&n=" + encodeURIComponent(i.slug), text: "Ler na íntegra" }),
+      ]),
       el("div", { class: "row" }, [
-        el("a", { class: "source", href: safeUrl(i.source_url), target: "_blank", rel: "noopener nofollow", text: "Ler na fonte: " + i.source_name + " ↗" }),
+        el("span", { class: "source", text: "Compartilhe:" }),
         el("div", { class: "actions" }, [ig, wa, lk]),
       ]),
     ]);
@@ -162,7 +167,7 @@
 
   function load() {
     return Promise.all([
-      get("news_items?select=id,slug,title_pt,summary_pt,comment_pt,takeaway_pt,category,evidence_level,relevance,source_name,source_url,published_at,created_at&is_published=eq.true&order=created_at.desc&limit=60"),
+      get("news_public?select=id,slug,title_pt,takeaway_pt,category,evidence_level,relevance,source_name,published_at,created_at&order=created_at.desc&limit=60"),
       get("news_runs?select=digest_title,digest_pt,finished_at,new_items&status=eq.ok&order=finished_at.desc&limit=1"),
     ]).then(function (r) {
       items = r[0];

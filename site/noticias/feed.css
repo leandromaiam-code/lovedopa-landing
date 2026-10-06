@@ -95,3 +95,10 @@ footer { border-top: 1px solid rgba(196,184,154,.5); padding: 26px 0 40px; color
   .row { flex-direction: column; align-items: stretch; }
   .actions .btn { flex: 1; }
 }
+
+.locked { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; background: linear-gradient(135deg, rgba(232,99,74,.08), rgba(42,157,143,.09)); border: 1px dashed rgba(26,31,61,.18); border-radius: 14px; padding: 16px 18px; margin: 4px 0 14px; }
+.locked__txt { display: flex; flex-direction: column; gap: 2px; }
+.locked__txt strong { font-family: 'IBM Plex Mono', monospace; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--coral-dark); }
+.locked__txt span { color: var(--muted); font-size: 15px; }
+.btn-lock { background: var(--navy); color: #fff; }
+.btn-lock:hover { filter: brightness(1.15); }
