@@ -168,7 +168,7 @@
   function load() {
     return Promise.all([
       get("news_public?select=id,slug,title_pt,takeaway_pt,category,evidence_level,relevance,source_name,published_at,created_at&order=created_at.desc&limit=60"),
-      get("news_runs?select=digest_title,digest_pt,finished_at,new_items&status=eq.ok&order=finished_at.desc&limit=1"),
+      get("news_runs?select=digest_title,digest_pt,finished_at,new_items&status=eq.ok&digest_pt=not.is.null&order=finished_at.desc&limit=1"),
     ]).then(function (r) {
       items = r[0];
       var run = r[1][0];
@@ -187,7 +187,7 @@
     });
   }
   function poll() {
-    get("news_runs?select=finished_at&status=eq.ok&order=finished_at.desc&limit=1").then(function (r) {
+    get("news_runs?select=finished_at&status=eq.ok&digest_pt=not.is.null&order=finished_at.desc&limit=1").then(function (r) {
       if (r[0] && lastRunAt && r[0].finished_at !== lastRunAt) $("newbar").classList.add("show");
     }).catch(function () {});
   }
