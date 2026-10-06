@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XQ8DN5L3B3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XQ8DN5L3B3');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notícias sobre Parkinson | LoveDopa</title>
+  <meta name="description" content="As notícias mais relevantes sobre a doença de Parkinson, resumidas e comentadas de hora em hora pelo LoveDopa: pesquisa, tratamentos, qualidade de vida e cuidado.">
+  <link rel="canonical" href="https://lovedopa.org/noticias/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Notícias sobre Parkinson — LoveDopa">
+  <meta property="og:description" content="Resumidas e comentadas de hora em hora, com link para a fonte.">
+  <meta property="og:url" content="https://lovedopa.org/noticias/">
+  <meta property="og:image" content="https://lovedopa.org/og-image.png">
+  <meta property="og:site_name" content="LoveDopa">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"CollectionPage","name":"Notícias sobre Parkinson","url":"https://lovedopa.org/noticias/","inLanguage":"pt-BR","publisher":{"@type":"Organization","name":"LoveDopa","url":"https://lovedopa.org"}}
+  </script>
+  <link rel="stylesheet" href="feed.css">
+</head>
+<body>
+  <nav class="nav" aria-label="Principal">
+    <div class="wrap">
+      <a class="brand" href="../"><img src="../logo-symbol.png" alt="" width="36" height="36"><span><b>Love</b><span>Dopa</span></span></a>
+      <ul>
+        <li class="hide-sm"><a href="../">Início</a></li>
+        <li><a href="./" aria-current="page">Notícias</a></li>
+        <li class="hide-sm"><a href="../blog/">Blog</a></li>
+        <li><a class="cta" href="https://app.lovedopa.org/signup">Começar grátis</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="live"><span class="dot" aria-hidden="true"></span><span id="liveText">Atualizado de hora em hora</span></span>
+      <h1>Notícias sobre Parkinson</h1>
+      <p class="lead">O que saiu de importante sobre a doença de Parkinson, resumido e comentado em linguagem clara pelo agente de notícias do LoveDopa. Sempre com o link para a fonte.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="digest" aria-live="polite">
+      <div class="k"><span>Comentário da hora</span><span id="digestTime"></span></div>
+      <h2 id="digestTitle">Carregando o panorama mais recente…</h2>
+      <p id="digestText"></p>
+      <div class="agent"><i aria-hidden="true"></i>Agente de notícias LoveDopa</div>
+    </section>
+
+    <div class="filters" role="group" aria-label="Filtrar por tema" id="filters"></div>
+
+    <section class="feed" id="feed" aria-live="polite">
+      <div class="skeleton"><div style="width:30%"></div><div style="width:90%"></div><div style="width:80%"></div><div style="width:60%"></div></div>
+      <div class="skeleton"><div style="width:25%"></div><div style="width:85%"></div><div style="width:70%"></div></div>
+      <noscript><div class="empty">Ative o JavaScript para ver as notícias.</div></noscript>
+    </section>
+
+    <section class="appcta">
+      <div>
+        <h2>Entenda o seu Parkinson, não só o das notícias</h2>
+        <p>Registre sintomas e medicações em menos de 2 minutos por dia e leve um relatório para o seu neurologista. Grátis.</p>
+      </div>
+      <a href="https://app.lovedopa.org/signup">Criar conta grátis</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>Conteúdo informativo, escrito por inteligência artificial a partir de matérias públicas, com link para cada fonte. Não é orientação médica e não substitui a avaliação do seu neurologista. Nunca mude o tratamento por conta própria.</p>
+      <p>© LoveDopa · <a href="../">lovedopa.org</a> · <a href="mailto:contato@lovedopa.org">contato@lovedopa.org</a></p>
+    </div>
+  </footer>
+
+  <div class="newbar" id="newbar"><button type="button" id="newbarBtn">Novas notícias — atualizar</button></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="feed.js" defer></script>
+</body>
+</html>
